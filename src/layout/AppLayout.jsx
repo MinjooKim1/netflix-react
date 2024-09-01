@@ -6,12 +6,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet } from 'react-router-dom';
-import Logo from"../image/Logo.svg.png"
+import Logo from "../image/Logo.svg.png";
+import './AppLayout.style.css';
 
 const AppLayout = () => {
     return (
         <div>
-            <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
+            <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary nav-bar">
       <Container fluid>
         <Navbar.Brand href="#"><img src={Logo} alt='logo'width={100} className='m-2' /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
