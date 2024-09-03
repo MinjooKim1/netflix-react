@@ -29,7 +29,9 @@
 }
 .movie-items{
     display: flex;
+    justify-content: space-between;
 }
+
 .movie-score{
     margin: 5px;
     align-self: baseline;
@@ -41,6 +43,7 @@
     transform: scale(1.1) translateZ(20px);
     z-index: 2;
 }
+
 
 @media (max-width: 480px){
 .movie-card{

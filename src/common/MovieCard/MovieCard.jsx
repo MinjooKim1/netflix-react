@@ -1,8 +1,22 @@
 import React from 'react'
 import { Badge } from 'react-bootstrap' 
 import "./MovieCard.style.css"
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
+
+
 
 function MovieCard({ movie }) {
+  const { data: genreData } = useMovieGenreQuery()
+
+  const showGenre = (genreIdList) => {
+    if (!genreData) return []
+    const genreNameList = genreIdList.map((id) => {
+      const genreObj = genreData.find((genre) => genre.id === id)
+      return genreObj.name;
+    })
+    
+    return genreNameList
+  }
   return (
     <div style={{ backgroundImage: "url(" + `https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.poster_path}` + ")" }}
     className='movie-card'>
@@ -13,7 +27,7 @@ function MovieCard({ movie }) {
               </svg> {movie.vote_average}</div>
         </div>
                 <div className='movie-items'><div>{movie.adult ? <Badge bg="danger">18</Badge> : <Badge bg="warning">ALL</Badge>}</div>
-          <div>{movie.genre_ids.map((id) => (<Badge bg="danger" >{id}</Badge>))}</div></div> 
+          <div className='movie-badge'>{showGenre(movie.genre_ids).map((id) => (<Badge bg="danger" >{id}</Badge>))}</div></div> 
       </div>
     </div>
   )
