@@ -12,7 +12,6 @@ import UpcommingMovieSlide from './components/UpcommingMovieSlide/UpcommingMovie
 function Homepage() {
   return (
     <div>
-
       <Banner />
       <PopularMovieSlide />
       <TopRatedMovieSlide />

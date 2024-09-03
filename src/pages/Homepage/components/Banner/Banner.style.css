@@ -29,10 +29,21 @@
 }
 @media (max-width: 700px){
     .banner{
-        height: 90vh;
+        height: 100%;
     }
   .banner-text-area{
-        width: 100%;
+        width: 100% !important;
 
     }
+   .banner {
+            height: 80vh;
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+    
+        }
+        .banner:before{
+            height: 80vh;
+        }
+
 }

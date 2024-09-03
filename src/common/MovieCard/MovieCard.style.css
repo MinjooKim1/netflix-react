@@ -1,5 +1,5 @@
 .movie-card{
-    width: 330px;
+    width: 430px;
     height: 220px;
     background-size: cover;
     cursor: pointer;
@@ -29,7 +29,6 @@
 }
 .movie-items{
     display: flex;
-    justify-content: space-between;
 }
 .movie-score{
     margin: 5px;
@@ -41,4 +40,18 @@
 .movie-card:hover{
     transform: scale(1.1) translateZ(20px);
     z-index: 2;
+}
+
+@media (max-width: 480px){
+.movie-card{
+height: 300px;
+width: 90vw;
+flex-wrap: nowrap;
+
+
+}
+.movie-card:hover{
+    transform: scale(1) translateZ(20px);
+
+}
 }

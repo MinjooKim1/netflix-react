@@ -1,12 +1,14 @@
 .carousel-container {
     overflow: hidden;
-    height: 440px;
+    height: 300px;
 }
 
 @media (max-width:480px) {
     .carousel-container {
-        height: 330px;
+        height: 350px;
+        width: 90vw;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        margin: 1em;
     }
 }
