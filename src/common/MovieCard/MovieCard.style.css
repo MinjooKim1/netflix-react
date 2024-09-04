@@ -1,9 +1,12 @@
 .movie-card{
-    width: 430px;
-    height: 220px;
+    width: 260px;
+    height: 350px;
     background-size: cover;
     cursor: pointer;
     transition: 0.5s;
+    border-radius: 10px;
+
+
 }
 .movie-title{
     display: flex;
@@ -23,6 +26,7 @@
     display: flex;
         flex-direction: column;
         justify-content: space-between;
+        border-radius: 10px;
 }
 .overlay h3{
     margin: 0;
@@ -42,19 +46,21 @@
 .movie-card:hover{
     transform: scale(1.1) translateZ(20px);
     z-index: 2;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 
 @media (max-width: 480px){
 .movie-card{
-height: 300px;
-width: 90vw;
+height: 350px;
+width: 250px;
 flex-wrap: nowrap;
 
 
 }
 .movie-card:hover{
-    transform: scale(1) translateZ(20px);
+    transform: scale(1.1) translateZ(20px);
 
 }
 }
