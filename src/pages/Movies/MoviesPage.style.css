@@ -1,0 +1,19 @@
+
+.pagination{
+    margin: 2em;
+}
+.page-link{
+    background-color: black;
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+.active .page-link{
+    background-color: rgb(199, 25, 25);
+    color: white;
+    border-radius: 50%;
+}
+.disabled .page-link {
+    background-color: black;
+    color: rgb(177, 177, 177);
+}

@@ -12,7 +12,6 @@ function MovieSlide({ title, movies, responsive }) {
             <Carousel
                 infinite={true}
               centerMode={true}
-        showDots={true}
                 itemClass="movie-slider p-1"
               containerClass='carousel-container'
 

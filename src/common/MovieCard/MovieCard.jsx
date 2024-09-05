@@ -2,11 +2,16 @@ import React from 'react'
 import { Badge } from 'react-bootstrap' 
 import "./MovieCard.style.css"
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
-
+import { useNavigate } from 'react-router-dom'
 
 
 function MovieCard({ movie }) {
   const { data: genreData } = useMovieGenreQuery()
+  const navigate = useNavigate()
+  const showDetail = () => {
+    navigate(`/movies/${movie.id}`)
+  }
+
 
   const showGenre = (genreIdList) => {
     if (!genreData) return []
@@ -18,8 +23,8 @@ function MovieCard({ movie }) {
     return genreNameList
   }
   return (
-    <div style={{ backgroundImage: "url(" + `https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.poster_path}` + ")" }}
-    className='movie-card'>
+    <div style={{ backgroundImage: "url(" + `https://image.tmdb.org/t/p/w300${movie.poster_path}` + ")" }}
+    className='movie-card' onClick={showDetail}>
       <div className='overlay'>
        <div> <h3>{movie.title}</h3>
 <div className='movie-score'> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">

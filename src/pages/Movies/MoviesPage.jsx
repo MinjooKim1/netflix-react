@@ -1,9 +1,10 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 import { Alert, Container, Spinner, Col, Row } from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
+import "./MoviesPage.style.css"
 
 
 //2 경로
@@ -23,10 +24,27 @@ const MoviesPage = () => {
   const handlePageClick = ({selected}) => {
     setPage(selected+1)
   }
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    setPage(1)
+  },[keyword])
 
-  const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword, page })
+ const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword, page })
   console.log("dddd", data)
+
+  //no movie found
+  useEffect(() => {
+    if (data&&data.results && data.results.length === 0) {
+      const timer = setTimeout(() => {
+        navigate('/Movies')
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [data, navigate]);
+
+
+ 
   if (isLoading) {
     return (
       <div className='spinner-area'>
@@ -38,7 +56,17 @@ const MoviesPage = () => {
   }
   if (isError) {
      return <Alert variant="danger">{error.message}</Alert>
-  } return (
+  }
+  if (data?.results.length === 0) {
+    return  <Alert key="danger" variant="danger">
+      No result found for "{keyword}"
+    </Alert>
+
+  }
+  
+  
+  
+  return (
   <Container>
     <Row>
       <Col lg={4} xs={12}>
