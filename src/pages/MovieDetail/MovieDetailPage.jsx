@@ -81,7 +81,7 @@ const MovieDetailPage = () => {
       </div>
       <Container>
        <Tabs
-      defaultActiveKey="home"
+      defaultActiveKey="detail"
       transition={false}
       id="noanim-tab-example"
       className="mb-3"
@@ -94,7 +94,7 @@ const MovieDetailPage = () => {
         <MovieReviews />
       </Tab>
       <Tab eventKey="recommend" title="Recommend">
-            Tab content for Contact
+           <RecommendMovieSlide />
             
       </Tab>
     </Tabs>
