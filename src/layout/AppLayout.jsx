@@ -27,7 +27,7 @@ const AppLayout = () => {
     <div>
       <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary nav-bar">
         <Container fluid>
-          <Navbar.Brand href="#"><img src={Logo} alt='logo' width={100} className='m-2' /></Navbar.Brand>
+          <Navbar.Brand href="/"><img src={Logo} alt='logo' width={100} className='m-2' /></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav

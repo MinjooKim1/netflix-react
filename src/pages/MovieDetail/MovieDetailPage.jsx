@@ -1,9 +1,11 @@
 import React from 'react'
 import { useMovieDetailQuery } from '../../hooks/useMovieDetail'
-import { Spinner, Alert, Container, Row, Col, Badge } from 'react-bootstrap'
+import { Spinner, Alert, Container, Row, Col, Badge, Tabs, Tab} from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import "./MovieDetailpage.style.css"
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
+import RecommendMovieSlide from '../Homepage/components/RecommendMovieSlide/RecommendMovieSlide'
+import MovieReviews from '../Homepage/components/MovieReviews/MovieReviews'
 
 
 
@@ -31,23 +33,72 @@ const MovieDetailPage = () => {
   }
   return (
     <div >
-      <div >
+      <div className='detail-container'>
       <Container >
-        <Row className='detail-content'>
-          <Col lg={4}> <img src={`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${movie.backdrop_path}`} className='detail-image' /></Col>
-            <Col lg={8}>
+        <Row>
+          <Col lg={4} sm={12}> <img src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} className='detail-image' /></Col>
+            <Col lg={8} sm={12}>
+
               <div>
-                
+                {movie.genres.map(genre => (<Badge key={genre.id} bg='danger' text='white' className='movie-genre'>{genre.name}</Badge>))}
               </div>
+              <div className="detail-content">
+                <h3>{movie?.title}</h3>
+                <div>{movie?.overview}</div>
+                
+                <table className='movie-detail-table'>
+                  <tr>
+                    <th scope='row'>POPULAR</th>
+                    <td>{movie?.popularity} </td>
+                  </tr>
+                   <tr>
+                    <th scope='row'>BUDGET</th>
+                    <td>{movie?.budget.toLocaleString('en-US', {
+                      style: 'currency',
+                      currency:'USD',
+                    })}</td>
+                    </tr>
+
+                   <tr>
+                    <th scope='row'>RELEASE DATE</th>
+                    <td>{movie?.release_date}  </td>
+                  </tr>
+                  
+                  <tr>
+                    <th scope='row'>RELEASE DATE</th>
+                    <td>{movie?.release_date}  </td>
+                    </tr>
+                </table>
+
+              </div>
+                      
+
+              
             
-            <h3>{movie?.title}</h3>
-            <div>{movie?.overview}</div>
           </Col>
         </Row>
-      </Container>
-
+        </Container>
       </div>
+      <Container>
+       <Tabs
+      defaultActiveKey="home"
+      transition={false}
+      id="noanim-tab-example"
+      className="mb-3"
+    >
+      <Tab eventKey="detail" title="Detail">
+            <RecommendMovieSlide />
 
+      </Tab>
+      <Tab eventKey="review" title="Review">
+        <MovieReviews />
+      </Tab>
+      <Tab eventKey="recommend" title="Recommend">
+            Tab content for Contact
+            
+      </Tab>
+    </Tabs>
+      </Container>
      
       
     </div>

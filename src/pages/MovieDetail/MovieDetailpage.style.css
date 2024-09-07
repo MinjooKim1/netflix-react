@@ -1,6 +1,59 @@
+.detail-container{
+    margin: 3em;
+}
+
 .detail-image{
     width: 300px;
     height: 500px;
     object-fit: cover;
 
+}
+.movie-genre{
+    margin: 5px
+}
+.detail-content{
+    width: 95%;
+    margin-top: 2em;
+}
+.movie-detail-table{
+margin-top: 3em;
+}
+
+.movie-detail-table tr th{
+
+    width: 150px;
+}
+
+
+@media (max-width:990px){
+    .detail-image{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .detail-container{
+        margin: 0;
+    }
+    .container{
+        margin: 16px;
+    }
+    .detail-content{
+        margin: 0;
+    }
+}
+
+/* tabs */
+
+.nav-tabs{
+    margin-top: 5em;
+}
+
+.nav-link.active{
+background-color: red;
+}
+.nav-link{
+    color: aliceblue;
+}
+.nav-item{
+    color: white;
 }
